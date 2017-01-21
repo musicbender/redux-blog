@@ -1,12 +1,24 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { fetchPost } from '../actions/index';
+import { fetchPost, deletePost } from '../actions/index';
 import { bindActionCreators } from 'redux';
+import { Link } from 'react-router';
 
 class PostsShow extends Component {
-componentWillMount() {
-  this.props.fetchPost(this.props.params.id);
-}
+  static contextTypes = {
+    router: PropTypes.object
+  };
+
+  componentWillMount() {
+    this.props.fetchPost(this.props.params.id);
+  }
+
+  onDeleteClick() {
+    this.props.deletePost(this.props.params.id)
+      .then(() => {
+        this.context.router.push('/');
+      });
+  }
 
   render() {
     const { post } = this.props;
@@ -18,6 +30,12 @@ componentWillMount() {
     }
     return (
       <div>
+        <Link to="/">Back to Home</Link>
+        <button
+          onClick={this.onDeleteClick.bind(this)}
+          className="btn btn-danger delete-btn">
+          Delete Post
+        </button>
         <h3>{post.title}</h3>
         <h6>{post.categories}</h6>
         <p>{post.content}</p>
@@ -27,7 +45,7 @@ componentWillMount() {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({fetchPost}, dispatch);
+  return bindActionCreators({fetchPost, deletePost}, dispatch);
 }
 
 function mapStateToProps(state) {

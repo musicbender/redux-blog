@@ -4,7 +4,8 @@ form a {
 
 /*Home*/
 
-.post-category {
+.post-category,
+.delete-btn {
   position: absolute;
   right: 1em;
 }
