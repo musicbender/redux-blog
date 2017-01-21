@@ -9,3 +9,7 @@ form a {
   position: absolute;
   right: 1em;
 }
+
+.new-post-btn {
+  margin: 2.5em 0;
+}
