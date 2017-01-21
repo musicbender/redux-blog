@@ -1,3 +1,10 @@
 form a {
   margin-left: 0.5em;
 }
+
+/*Home*/
+
+.post-category {
+  position: absolute;
+  right: 1em;
+}
