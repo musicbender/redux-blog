@@ -1,8 +1,14 @@
-form a {
-  margin-left: 0.5em;
+h1 {
+  margin: 1em 0 !important;
 }
 
-/*Home*/
+h3 {
+  margin: 2em 0 1em !important;
+}
+
+h6 {
+  font-style: italic;
+}
 
 .post-category,
 .delete-btn {
@@ -11,5 +17,9 @@ form a {
 }
 
 .new-post-btn {
-  margin: 2.5em 0;
+  margin: 2.5em 0 0;
+}
+
+form a {
+  margin-left: 0.5em;
 }
